@@ -1,140 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>The Home Study</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff4e6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(45deg, #ffa726, #fb8c00);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-        input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
-        button#enrollBtn {
-            display: none;
-            background-color: #fb8c00;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .course-section {
-            display: none;
-            margin-top: 30px;
-        }
-        .course-level {
-            background-color: #ffe0b2;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            opacity: 0.5;
-        }
-        .course-level.unlocked {
-            opacity: 1;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Home Study</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="banner">
+    <h1>Welcome to The Home Study</h1>
+    <p>Your learning journey starts here.</p>
+  </header>
 
-<header>
-    <h1>The Home Study</h1>
-    <p>Unlock your potential one day at a time.</p>
-</header>
-
-<section>
-    <h2>Join Our Course</h2>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="WhatsApp Number" required>
-        <input type="submit" value="Submit">
+  <section class="form-section">
+    <h2>Join the Course</h2>
+    <form id="signup-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required />
+      <button type="submit">Submit</button>
     </form>
+  </section>
 
-    <h3>Watch the Course Introduction</h3>
-    <video id="introVideo" controls>
-        <source src="your-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+  <section class="video-section">
+    <h2>Watch Intro Video</h2>
+    <video id="course-video" width="600" controls>
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
+    <button id="enroll-btn" style="display: none;">Enroll Now</button>
+  </section>
 
-    <button id="enrollBtn">Enroll Now</button>
+  <section id="course-section" style="display: none;">
+    <h2>Your Course</h2>
+    <div class="level locked">Level 1: Getting Started</div>
+    <div class="level locked">Level 2: Deep Dive</div>
+    <div class="level locked">Level 3: Final Steps</div>
+  </section>
 
-    <div class="course-section" id="courseSection">
-        <h2>Your Course Levels</h2>
-        <div id="level1" class="course-level unlocked">Level 1 - Available Now</div>
-        <div id="level2" class="course-level">Level 2 - Unlocks Tomorrow</div>
-        <div id="level3" class="course-level">Level 3 - Unlocks Day After</div>
-    </div>
-</section>
-
-<script>
-    const video = document.getElementById("introVideo");
-    const enrollBtn = document.getElementById("enrollBtn");
-    const courseSection = document.getElementById("courseSection");
-
-    video.addEventListener("timeupdate", () => {
-        if (video.currentTime >= 60 && enrollBtn.style.display === "none") {
-            enrollBtn.style.display = "block";
-        }
-    });
-
-    enrollBtn.addEventListener("click", () => {
-        courseSection.style.display = "block";
-        unlockLevels();
-    });
-
-    function unlockLevels() {
-        const level1 = document.getElementById("level1");
-        const level2 = document.getElementById("level2");
-        const level3 = document.getElementById("level3");
-
-        const today = new Date().toDateString();
-        const savedDate = localStorage.getItem("enrollDate");
-
-        if (!savedDate) {
-            localStorage.setItem("enrollDate", today);
-        }
-
-        const enrollDate = new Date(localStorage.getItem("enrollDate"));
-        const now = new Date();
-
-        const diffDays = Math.floor((now - enrollDate) / (1000 * 60 * 60 * 24));
-
-        if (diffDays >= 1) level2.classList.add("unlocked");
-        if (diffDays >= 2) level3.classList.add("unlocked");
-    }
-</script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
