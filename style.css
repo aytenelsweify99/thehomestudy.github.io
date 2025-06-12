@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* General Reset */
 * {
   margin: 0;
@@ -7,175 +9,121 @@
 }
 
 body {
-  background-color: #fff8f0;
+  background: #fffaf0;
   color: #333;
   line-height: 1.6;
+  padding: 20px;
 }
 
-/* Header */
-.site-header {
+header {
+  background: linear-gradient(to right, #ffa726, #fb8c00);
+  color: white;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #ff9f1c;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.site-header .logo img {
-  height: 50px;
-}
-
-.site-header .navigation ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-}
-
-.site-header .navigation a {
-  text-decoration: none;
-  color: #fff;
+header .logo {
+  font-size: 1.8em;
   font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s;
 }
 
-.site-header .navigation a:hover {
-  color: #000;
+nav ul li a:hover {
+  color: #fff3e0;
 }
 
-/* Banner */
 .banner {
+  background: #ffe0b2;
+  padding: 40px;
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #ffa94d, #ffcc80);
-  color: #fff;
+  border-radius: 12px;
+  margin-top: 20px;
 }
 
-.banner h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
-
-.banner p {
-  font-size: 1.2em;
-}
-
-/* Form */
-.form-section {
-  background: #fff3e6;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.form-section form {
-  max-width: 400px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form-section input,
-.form-section button {
-  padding: 12px;
-  border: none;
+form {
+  margin: 30px 0;
+  background: #fff3e0;
+  padding: 20px;
   border-radius: 8px;
-  font-size: 1em;
 }
 
-.form-section input {
-  background-color: #fff;
+form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
   border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.form-section button {
-  background-color: #ff9f1c;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form-section button:hover {
-  background-color: #ff7f00;
-}
-
-/* Video */
-.video-section {
-  padding: 40px 20px;
-  text-align: center;
-  background: #ffe4c4;
+#course-video {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
 }
 
 #enroll-btn {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 1em;
-  background-color: #ff9f1c;
-  color: #fff;
+  display: none;
+  margin: 20px auto;
+  background: #fb8c00;
+  color: white;
   border: none;
-  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
 #enroll-btn:hover {
-  background-color: #ff7f00;
+  background: #ef6c00;
 }
 
-/* Course Section */
 #course-section {
-  padding: 40px 20px;
-  background-color: #fffaf3;
-  text-align: center;
+  display: none;
+  background: #fff3e0;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
 }
 
-.level {
-  background-color: #ffd6a5;
-  margin: 15px auto;
-  max-width: 600px;
-  padding: 20px;
+.course-level {
+  padding: 15px;
+  border: 2px dashed #ffa726;
   border-radius: 10px;
-  font-size: 1.2em;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.course-level.locked::after {
+  content: '🔒 Locked';
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #d84315;
   font-weight: bold;
 }
 
-.locked {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-/* About Us */
-#about-us {
-  padding: 40px 20px;
-  background-color: #fff3e0;
-  text-align: center;
-}
-
-#about-us h2 {
-  margin-bottom: 10px;
-  font-size: 2em;
-}
-
-#about-us p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1em;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .site-header .navigation ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .banner h1 {
-    font-size: 2em;
-  }
+.course-level.unlocked::after {
+  content: '✅ Unlocked';
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: green;
+  font-weight: bold;
 }
