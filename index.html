@@ -47,12 +47,30 @@
       <button id="enrollBtn" disabled>Enroll Now</button>
     </section>
 
-    <!-- Course Levels Section -->
-    <section class="course-levels" id="course" style="display: none;">
-      <h2>Course Levels</h2>
-      <div class="level" id="level1">Level 1 - Unlocked</div>
-      <div class="level locked" id="level2">Level 2 - Locked</div>
-      <div class="level locked" id="level3">Level 3 - Locked</div>
+    <!-- Course Section -->
+    <section class="course-details" id="course" style="display: none;">
+      <h2>Course Title: Mastering Productivity</h2>
+      <p class="course-description">
+        This course is designed to help you build consistent productivity habits through a guided 3-day challenge. Each level focuses on a core area of improvement and unlocks after 24 hours.
+      </p>
+
+      <div class="course-level">
+        <h3>Level 1: Focus and Clarity</h3>
+        <p>Learn techniques to eliminate distractions and stay mentally clear.</p>
+        <button class="start-btn">Start</button>
+      </div>
+
+      <div class="course-level locked" id="level2">
+        <h3>Level 2: Time Management</h3>
+        <p>Understand how to organize your time and set realistic goals.</p>
+        <button class="locked-btn" disabled>Locked</button>
+      </div>
+
+      <div class="course-level locked" id="level3">
+        <h3>Level 3: Discipline and Consistency</h3>
+        <p>Build routines and systems to stay productive long-term.</p>
+        <button class="locked-btn" disabled>Locked</button>
+      </div>
     </section>
   </main>
 
