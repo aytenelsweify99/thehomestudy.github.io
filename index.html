@@ -7,77 +7,73 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="logo">The Home Study</div>
-      <nav class="navbar">
-        <a href="#course">Course</a>
-        <a href="#signup">Sign Up</a>
-        <a href="#signin">Sign In</a>
-        <a href="#about">About Us</a>
-      </nav>
-    </div>
+  <header>
+    <div class="logo">The Home Study</div>
+    <nav>
+      <ul>
+        <li><a href="#course-section">Course</a></li>
+        <li><a href="#form">Sign Up</a></li>
+        <li><a href="#form">Sign In</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main>
-    <!-- Banner Section -->
-    <section class="banner">
-      <h1>Welcome to The Home Study</h1>
-      <p>Unlock your learning potential, day by day.</p>
-    </section>
+  <section class="banner">
+    <h1>Welcome to The Home Study</h1>
+    <p>Unlock a better way to learn online — one level at a time!</p>
+  </section>
 
-    <!-- Form Section -->
-    <section class="form-section" id="signup">
-      <h2>Join the Course</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="tel" placeholder="WhatsApp Number" required />
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+  <form id="form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <input type="text" placeholder="WhatsApp Number" required />
+    <button type="submit">Submit</button>
+  </form>
 
-    <!-- Video + Unlock Button Section -->
-    <section class="video-section">
-      <h2>Course Introduction</h2>
-      <video id="introVideo" controls>
-        <source src="course-intro.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <button id="enrollBtn" disabled>Enroll Now</button>
-    </section>
+  <video id="course-video" controls>
+    <source src="your-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-    <!-- Course Section -->
-    <section class="course-details" id="course" style="display: none;">
-      <h2>Course Title: Mastering Productivity</h2>
-      <p class="course-description">
-        This course is designed to help you build consistent productivity habits through a guided 3-day challenge. Each level focuses on a core area of improvement and unlocks after 24 hours.
-      </p>
+  <button id="enroll-btn">Enroll Now</button>
 
-      <div class="course-level">
-        <h3>Level 1: Focus and Clarity</h3>
-        <p>Learn techniques to eliminate distractions and stay mentally clear.</p>
-        <button class="start-btn">Start</button>
-      </div>
+  <section id="course-section">
+    <h2>Master the Skills</h2>
+    <p>This course helps you grow step-by-step through three powerful learning levels.</p>
+    <div class="course-level unlocked">
+      <h3>Level 1: Foundations</h3>
+      <p>Learn the basics and prepare for the next stage.</p>
+    </div>
+    <div class="course-level locked">
+      <h3>Level 2: Intermediate</h3>
+      <p>Advance your skills after completing Level 1 and one day delay.</p>
+    </div>
+    <div class="course-level locked">
+      <h3>Level 3: Mastery</h3>
+      <p>Achieve mastery with advanced training and techniques.</p>
+    </div>
+  </section>
 
-      <div class="course-level locked" id="level2">
-        <h3>Level 2: Time Management</h3>
-        <p>Understand how to organize your time and set realistic goals.</p>
-        <button class="locked-btn" disabled>Locked</button>
-      </div>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>The Home Study is dedicated to providing structured, paced online education to help learners thrive at their own rhythm.</p>
+  </section>
 
-      <div class="course-level locked" id="level3">
-        <h3>Level 3: Discipline and Consistency</h3>
-        <p>Build routines and systems to stay productive long-term.</p>
-        <button class="locked-btn" disabled>Locked</button>
-      </div>
-    </section>
-  </main>
+  <script>
+    const video = document.getElementById('course-video');
+    const enrollBtn = document.getElementById('enroll-btn');
+    const courseSection = document.getElementById('course-section');
 
-  <footer>
-    <p>&copy; 2025 The Home Study. All rights reserved.</p>
-  </footer>
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime >= 60 && enrollBtn.style.display === 'none') {
+        enrollBtn.style.display = 'block';
+      }
+    });
 
-  <script src="script.js"></script>
+    enrollBtn.addEventListener('click', () => {
+      courseSection.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
